@@ -1,21 +1,35 @@
 import java.util.*;
-public class Cart {
+public class Cart 
+{
 
 	Scanner sc = new Scanner(System.in);
-	String itemlist[] = {"Toothpaste","Bscuit    ","Honey     ","Kechap    ","Oil       "};
-	int itemprice[]= {70, 20,50,80,90};
-	int itemqty[] = { 12, 12,12,12,12};
-	int[] mycart = {0,0,0,0,0};
-	public void menu(){
-		System.out.println("----------------------------------------------");
+	//This itemList array of Items that are present in  Store.
+	String itemList[] = {"Toothpaste","Biscuit   ","Honey     ","Kechap    ","Oil       "};
+	
+	//This itemPrice array is to tell price of Items in Store.
+	int itemPrice[]= {70, 20,50,80,90};
+	
+	//itemQty array is use to show Quantity of Items in Store.
+	int itemQty[] = { 12, 12,12,12,12};
+	
+	//myCart array is use to Add/Remove Items as User demand.
+	int[] myCart = {0,0,0,0,0};
+	
+	//This Function is For Display the Items available in Store.
+	public void Menu()
+	{
+		System.out.println("------------------------------------------------");
 		System.out.println("S.NO.   Item Name          Price        Quantity");
 		for(int i = 0;i<5;i++)
 		{
-			System.out.println((i+1)+"        "+itemlist[i]+"         " + itemprice[i] +"           "+ itemqty[i]);
+			System.out.println((i+1)+"        "+itemList[i]+"         " + itemPrice[i] +"           "+ itemQty[i]);
 		}
-		System.out.println("----------------------------------------------");
+		System.out.println("------------------------------------------------");
 	}
-	public void display(){
+	
+	//This Function is For Display the Choices to user.
+	public void Display()
+	{
 		System.out.println("Enter your Choice:");
 		System.out.println("1. For See Availabe items");
 		System.out.println("2. Add Item to Cart");
@@ -23,9 +37,11 @@ public class Cart {
 		System.out.println("4. Show Items in Cart");
 		System.out.println("5. Generate Bill");
 		int c = sc.nextInt();
-		choice(c);
+		Choice(c);
 	}
-	public void add()
+	
+	//Add() is use to add items in cart.
+	public void Add()
 	{
 		char c = 'y';
 		while( c != 'n')
@@ -35,44 +51,52 @@ public class Cart {
 		int i = sc.nextInt();
 		System.out.println("Enter Quantity of Item :");
 		int q = sc.nextInt();
-		if(mycart[i-1] + q < 12)
-		{
-			mycart[i-1] = mycart[i-1] + q;
-		}
-		else
-		{
-			System.out.println("There is Not Enough Q");
-		}
+			if(myCart[i-1] + q < 12)//Check if User want to enter more Quantity Greater than Quantity in Store.
+				{
+					myCart[i-1] = myCart[i-1] + q;
+				}
+			else
+				{
+					System.out.println("There is Not Enough Quantity in Shop!");
+				}
 		System.out.println("Do you want to add more item(y or n)");
 		c = sc.next().charAt(0);
 		}
-}
-	public void show()
+	}
+	
+	//Show() is use to show the items present in Cart.
+	public void Show()
 	{
-		System.out.println("----------------------------------------------");
-		System.out.println("S.NO.   Item Name          Quintity");
+		System.out.println("--------------------------------------");
+		System.out.println("S.NO.   Item Name          Quantity");
 		for(int i = 0;i<5;i++)
 		{
-			if(mycart[i] != 0)
+			if(myCart[i] != 0)
 			{
-				System.out.println(i+1 + "        " + itemlist[i] + "        "+mycart[i]);
+				System.out.println(i+1 + "        " + itemList[i] + "        "+myCart[i]);
 			}
 		}
-		System.out.println("----------------------------------------------");
+		System.out.println("--------------------------------------");
 	}
-	public void genBill()
+	
+	//GenBill() is to generate bill for user.
+	public void GenBill()
 	{
 		int total = 0;
 		for(int i = 0; i<5 ; i++)
 		{
-			if(mycart[i] != 0)
+			if(myCart[i] != 0)
 			{
-				total = total + (mycart[i]*itemprice[i]);
+				total = total + (myCart[i]*itemPrice[i]);
 			}
 		}
-		System.out.println("Bill : " + total + " Bucks");
+		System.out.println("------------------------");
+		System.out.println("Bill : " + total + " Rs");
+		System.out.println("------------------------");
 	}
-	public void remove()
+	
+	//Remove() is to Update an Item from Cart.
+	public void Remove()
 	{
 		char c = 'y';
 		while( c != 'n')
@@ -81,50 +105,56 @@ public class Cart {
 		int i = sc.nextInt();
 		System.out.println("Enter Quantity of Item :");
 		int q = sc.nextInt();
-		if(mycart[i-1] - q > 0)
-		{
-			mycart[i-1] = mycart[i-1] - q;
-		}
-		else
-		{
-			System.out.println("Sooooryyyyy");
-		}
+			if(myCart[i-1] - q > 0)//Check for -ve Number.
+				{
+					myCart[i-1] = myCart[i-1] - q;
+				}
+			else
+				{
+					System.out.println("There is Not Enough Quantity in Item!");
+				}
 		System.out.println("Do you want to remove more item(y or n)");
 		c = sc.next().charAt(0);
 		}
 	}
-	public void choice(int i){
-		switch(i){
+	
+	//Choice() Call all the Function that perform specific task.
+	public void Choice(int i)
+	{
+		switch(i)
+		{
 		case 1:
-			menu();
-			display();
+			Menu();
+			Display();
 			break;
 		case 2:
-			menu();
-			add();
-			display();
+			Menu();
+			Add();
+			Display();
 			break;
 		case 3:
-			remove();
-			display();
+			Remove();
+			Display();
 			break;
 		case 4:
-			show();
-			display();
+			Show();
+			Display();
 			break;
 		case 5:
-			genBill();
-			display();
+			GenBill();
+			Display();
 			break;
 		default:
 			System.out.println("Wrong number entered!!!!");
-			display();
+			Display();
 		}
 	}
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	
+	//Main Function
+	public static void main(String[] args)
+	{
 		Cart c = new Cart();
-		c.display();
+		c.Display();
 	}
 
 }
