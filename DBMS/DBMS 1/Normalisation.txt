@@ -1,0 +1,98 @@
+Normalisation is a technique of organizing the data in the database and to avoid data redundancy and undesirable characteristics 
+like Insertion, Update and Deletion Anomalies.
+ 
+Normalization is used for mainly two purpose:
+                  -Eliminating redundant data.
+                  -Ensuring data dependencies make sense i.e data is logically stored.
+
+Normalization Rules: 
+1st Normal - A relation is in 1NF if it contains an atomic value(No Multi-Value is Present in Table).
+2nd Normal Form - A relation will be in 2NF if it is in 1NF and all non-key attributes are fully functional dependent on the primary key.
+			(means we can easily identify all the columns by using primary key)
+3rd Normal Form - A relation will be in 3NF if it is in 2NF and no transition dependency exists.
+			(Not Present any X -> Y,Y -> Z, X ->Z this is transition dependency)
+BCNF - All the other attributes can only be dependent on Primary Key.
+
+1.) 1NF :- A column of table cannot hold multivalue , it can only store single(atomic) value.
+
+	emp_id	emp_name	emp_address	emp_mobile
+
+	101	Herschel	New Delhi	8912312390
+	102	Jon		Kanpur		8812121212
+						9900012222
+	103	Ron		Chennai		7778881212 
+
+  After removing Multivalue from above table now following table is in 1NF
+
+	
+	emp_id	emp_name	emp_address	emp_mobile
+
+	101	Herschel	New Delhi	8912312390
+	102	Jon		Kanpur		8812121212
+	102	Jon		Kanpur		9900012222
+	103	Ron		Chennai		7778881212
+
+2.) 2NF :- No non-prime attribute is dependent on the proper subset of any candidate key of table.
+
+
+	teacher_id	subject		teacher_age
+	111		Maths		38
+	111		Physics		38
+	222		Biology		38
+        
+	Candidate key - subject,teacherid
+	non-prime - teacher_age
+	After reducing above table it can divide into 2 tables
+
+	
+	teacher_id	subject
+	111		Maths
+	111		Physics
+	222		Biology
+
+	teacher_id	teacher_age
+	111		38
+	222		38
+
+3.) 3NF :- Transitive functional dependency of non-prime attribute on any super key should be removed.
+
+		
+	emp_id		emp_name	emp_zip		emp_state	emp_city	emp_district
+	1001		John		282005		UP		Agra		Dayal Bagh
+	1002		Ajeet		222008		TN		Chennai		M-City
+	1006		Lora		282007		TN		Chennai		Urrapakkam
+
+ 		Like by emp_zip we can derive state,city,distric so its show transitive dependency
+
+	emp_id		emp_name	emp_zip
+	1001		John		282005
+	1002		Ajeet		222008
+	1006		Lora		282007
+
+	emp_zip		emp_state	emp_city	emp_district
+	282005		UP		Agra		Dayal Bagh
+	222008		TN		Chennai		M-City	
+	282007		TN		Chennai		Urrapakkam
+4.)BCNF - Boyce Codd normal form
+	   It describe that we can reduce the table such that all the attribute is fully dependent on Primary key of that table.
+
+		
+	emp_id		emp_nationality		emp_dept			dept_type	dept_no_of_emp
+	1001		Austrian		Production and planning		D001		200
+	1001		Austrian		stores				D001		250
+        
+ 	we try to reduce above table into table such that all attribute is Only depend on Primary key (emp_id)
+	
+
+	emp_id		emp_nationality
+	1001		Austrian
+
+
+	emp_dept			dept_type	dept_no_of_emp
+	Production and planning		D001		200
+	stores				D001		250
+
+
+	emp_id		emp_dept
+	1001		Production and planning
+	1001		stores

@@ -1,0 +1,86 @@
+Product-
+	ProductId
+	SalerId
+	Code
+	Name
+	PdtDescription
+	QtyInStock
+	Price
+
+Categories  
+Home    
+Fashion
+Electronics
+Sports
+
+Admin -
+	ID
+	Name
+	Email
+	Password
+	ItemToSell
+
+Shopper -
+	Id
+	Name
+	Email
+	Password
+	Cart
+
+Order - 
+	ID
+	ShopperId
+	OrderDate
+	Status
+	ShippedDate
+
+Shipping -
+	ID
+	OrderId
+	ProductCode
+	Qty
+	Price
+
+Address -
+	House no.
+	Area/Street
+	Landmark
+	City
+	State
+	Country
+	PostalCode
+
+Stock -
+	ID
+	ItemName
+	TotalCapacity
+	QtyLeftInStock
+
+details - 
+	ID
+	FirstName
+	LastName
+	Phone
+	Address
+	 
+Payment - 
+	CustomerId
+	TransactionID
+	PaymentDate
+	Amount
+
+###########################
+RelationShips:
+###########################
+Admin ---- Has------Details
+Shopper----Has------Details
+Admin------can sell---Product
+Product-----Has-----Categories
+Product------Is in-----Stock
+Product------Go for------Shipping
+Product------Can Be------Order
+Shopper-------Can-------Order
+Order-------Go for-------Shipping
+Shipping-----To---------Address
+Shipping-----Pay--------Payment
+
