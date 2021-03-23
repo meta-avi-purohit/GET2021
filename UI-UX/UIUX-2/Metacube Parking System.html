@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="style.css">
+	<title>Metacube Parking System</title>
+</head>
+
+<body>
+	<div class="form">
+		<h1>Welcome to Metacube Parking System</h1>
+		<!-- This div is for image -->
+		<div class="img">
+			<img src="Parking.jpg" alt="Parking Image" width="500" height="500">
+		</div>
+
+		<!-- nav for different option on page -->
+		<nav>
+			<a href="#employee">Add Employee </a>
+			<a href="#vehicle"> Add Vehicle </a>
+			<a href="#feedback"> Give feedback </a>
+			<a href="#pricing"> Pricing </a>
+		</nav>
+	</div>
+
+	<!-- this div is form Employee Registration Form -->
+	<form id="employee" class="form">
+		<h2>Employee Form</h2>
+
+
+		<label for="fullname">Full Name:</label>
+		<input type="text" placeholder="Enter Full Name">
+
+
+		<div class="radio">
+			<label>Gender :</label>
+			<input type="radio" id="male" name="gender" value="male">
+			<label for="male" class="gen">Male</label>
+			<input type="radio" id="female" name="gender" value="female">
+			<label for="female" class="gen">Female</label>
+			<input type="radio" id="other" name="gender" value="other">
+			<label for="other" class="gen">Other</label>
+		</div>
+
+		<label for="email">Email ID :</label>
+		<input type="email" id="email" placeholder="Enter Email"></br></br>
+
+		<label for="password">Password :</label>
+		<input type="password" name="password" placeholder="Enter Password" required></br></br>
+
+		<label for="confirm password">Confirm Password :</label>
+		<input type="password" name="confirm password" placeholder="Enter Confirm Password" required></br></br>
+
+		<label for="contact">Contact Number :</label>
+		<input type="number" name="contact" placeholder="Enter Contact"></br></br>
+		
+		<input type="submit" name="submit" value="Submit" id="submit">
+
+	</form>
+	</br>
+
+	<!-- This div is for Vehicle Entry Form in Parking System -->
+	<div id="vehicle" class="form">
+		<h2>Vehicle Entry</h2>
+		<form>
+
+			<label>Vehicle Company : </label>
+			<input type="text" name="company" placeholder="Company"></br></br>
+
+			<label>Vehicle Model : </label>
+			<input type="text" name="model" placeholder="Model"></br></br>
+
+			<div class="radio">
+				<label>Type : </label>
+				<input type="radio" id="cycle" name="type" value="cycle">
+				<label for="cycle" class="type type-cycle">Cycle</label>
+				<input type="radio" id="motercycle" name="type" value="motercycle">
+				<label for="motercycle" class="type">Moter Cycle</label>
+				<input type="radio" id="fourwheeler" name="type" value="fourwheeler">
+				<label for="fourwheeler" class="type">Four Wheeler</label></br></br>
+			</div>
+
+			<label>Vehicle Number : </label>
+			<input type="number" name="number" placeholder="Vehicle Number"></br></br>
+
+			<label>Employee ID : </label>
+			<input type="text" name="id" placeholder="Employee ID"></br></br>
+
+
+			<textarea name="identification" id="identification" rows="10" cols="30"
+				placeholder="Color, mark,visible accessory etc."></textarea></br></br>
+
+			<input type="submit" name="submit" id="submit" value="Submit">
+
+		</form>
+	</div>
+	</br>
+
+	<!-- this div is for Feedback Form -->
+	<div id="feedback" class="form">
+		<h2>Feedback Form</h2>
+		<form>
+
+			<label>Name :</label>
+			<input type="text" name="name" placeholder="Name"></br></br>
+
+			<label>Email ID : </label>
+			<input type="email" name="email" placeholder="Email"></br>
+
+			<div class="radio">
+				<label>Rating :</label>
+				<input type="radio" id="1" name="star" value="1">
+				<label for="1" class="rating">1</label>
+				<input type="radio" id="2" name="star" value="2">
+				<label for="2" class="rating">2</label>
+				<input type="radio" id="3" name="star" value="3">
+				<label for="3" class="rating">3</label>
+				<input type="radio" id="4" name="star" value="4">
+				<label for="4" class="rating">4</label>
+				<input type="radio" id="5" name="star" value="5">
+				<label for="5" class="rating">5</label>
+			</div>
+			<textarea id="comment" name="comment" rows="10" cols="25"
+				placeholder="Additional Comments"></textarea></br></br>
+
+			<input type="submit" name="submit" id="submit" value="Submit">
+
+		</form>
+	</div>
+	</br>
+
+	<!-- this div is for pricing of parking a vehicle -->
+	<div id="pricing" class="form">
+		<h2>Pricing</h2>
+		<div class="vehicle">
+			<div class="vehicle-type">
+				<h3>Cycle</h3>
+				<div class="decor">
+					<p class="p">$100</p>
+					<p class="p">/Monthly</p>
+				</div>
+				<p>$5 Daily</br>$100 Monthly</br>$500 Yearly</p>
+				<input type="submit" name="submit" id="submit" value="PURCHASE NOW"></br></br>
+			</div>
+			</br>
+
+			<div class="vehicle-type">
+				<h3>Motor Cycle</h3>
+				<div class="decor">
+					<p class="p">$200<p>
+					<p class="p">/Monthly<p>
+				</div>
+				<p>$10 Daily</br>$200 Monthly</br>$1000 Yearly</p>
+				<input type="submit" id="submit" name="submit" value="PURCHASE NOW"></br></br>
+			</div>
+			</br>
+
+			<div class="vehicle-type">
+				<h3>Four Wheelers</h3>
+				<div class="decor">
+					<p class="p">$500</p>
+					<p class="p">/Monthly</p>
+				</div>
+				<p>$20 Daily</br>$500 Monthly</br>$3500 Yearly</p>
+				<input type="submit" name="submit" id="submit" value="PURCHASE NOW"></br></br>
+			</div>
+		</div>
+	</div>
+	</br>
+</body>
+
+</html>
