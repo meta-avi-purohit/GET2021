@@ -1,10 +1,23 @@
 import java.util.*;
 
-class Stack {
+interface Stack {
+	
+	public void push(String item);
+
+	public String pop();
+
+	public String lastElement();
+
+	public boolean isEmpty();
+
+	public void printStack();
+}
+
+class StackImplement implements Stack {
 	private int top;
 	public String stack[] = new String[100];
 
-	Stack() {
+	StackImplement() {
 		top = -1;
 	}
 
@@ -14,6 +27,7 @@ class Stack {
 	 * @param item
 	 *            - to insert at top
 	 */
+	@Override
 	public void push(String item) {
 		if (top > stack.length) {
 			System.out.println("Stack Over Flow");
@@ -28,6 +42,7 @@ class Stack {
 	 * 
 	 * @return
 	 */
+	@Override
 	public String lastElement() {
 		return stack[top];
 	}
@@ -37,6 +52,7 @@ class Stack {
 	 * 
 	 * @return
 	 */
+	@Override
 	public String pop() {
 		return stack[top--];
 	}
@@ -46,6 +62,7 @@ class Stack {
 	 * 
 	 * @return
 	 */
+	@Override
 	public boolean isEmpty() {
 		if (top == -1) {
 			return true;
@@ -57,6 +74,7 @@ class Stack {
 	/**
 	 * Print the stack
 	 */
+	@Override
 	public void printStack() {
 		for (int i = 0; i <= top; i++) {
 			System.out.print(stack[i] + " ");
@@ -188,8 +206,8 @@ public class InfixEvaluation {
 				.println("Enter the expression(with space seprate between each character) :");
 		String input = scan.nextLine();
 		String expression[] = input.split(" ");
-		Stack operator = new Stack();
-		Stack elements = new Stack();
+		StackImplement operator = new StackImplement();
+		StackImplement elements = new StackImplement();
 		for (int i = 0; i < expression.length; i++) {
 			if (isOperator(expression[i]) == false) {
 				elements.push(expression[i]);
@@ -215,7 +233,6 @@ public class InfixEvaluation {
 						elements.push(String.valueOf(result));
 						operator.push(expression[i]);
 					} else {
-
 						operator.push(expression[i]);
 					}
 

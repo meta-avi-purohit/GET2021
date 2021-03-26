@@ -1,10 +1,19 @@
 import java.util.*;
 
-public class Queue {
+interface Queue {
+	
+	public void enQueue(int data);
+
+	public int deQueue();
+
+	public void displayQueue();
+}
+
+public class QueueImplement implements Queue {
 	private int size, front, rear;
 	private int queue[];
 
-	Queue(int size) {
+	QueueImplement(int size) {
 		queue = new int[size];
 		this.size = size;
 		this.front = this.rear = -1;
@@ -15,12 +24,15 @@ public class Queue {
 	 * 
 	 * @param data
 	 */
+	@Override
 	public void enQueue(int data) {
 		if ((front == 0 && rear == size - 1)
 				|| (rear == (front - 1) % (size - 1))) {
-			System.out.println("################################################");
+			System.out
+					.println("################################################");
 			System.out.println("Queue is Full");
-			System.out.println("################################################");
+			System.out
+					.println("################################################");
 		} else if (front == -1) {
 			front = 0;
 			rear = 0;
@@ -32,9 +44,10 @@ public class Queue {
 			rear = (rear + 1);
 			if (front <= rear) {
 				queue[rear] = data;
-			} else {
-				queue[rear] = data;
 			}
+			// } else {
+			// queue[rear] = data;
+			// }
 		}
 	}
 
@@ -43,12 +56,15 @@ public class Queue {
 	 * 
 	 * @return
 	 */
+	@Override
 	public int deQueue() {
 		int pop;
 		if (front == -1) {
-			System.out.println("################################################");
+			System.out
+					.println("################################################");
 			System.out.println("Queue is Empty");
-			System.out.println("################################################");
+			System.out
+					.println("################################################");
 			return -1;
 		}
 
@@ -68,12 +84,15 @@ public class Queue {
 	/**
 	 * Function to Display the Queue
 	 */
+	@Override
 	public void displayQueue() {
 
 		if (front == -1) {
-			System.out.println("################################################");
+			System.out
+					.println("################################################");
 			System.out.println("Queue is Empty");
-			System.out.println("################################################");
+			System.out
+					.println("################################################");
 			return;
 		}
 
@@ -96,7 +115,8 @@ public class Queue {
 				System.out.print(" ");
 			}
 			System.out.println();
-			System.out.println("################################################");
+			System.out
+					.println("################################################");
 		}
 	}
 
@@ -104,44 +124,47 @@ public class Queue {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter size of the queue : ");
 		int size = scan.nextInt();
-		Queue Q = new Queue(size);
+		QueueImplement Q = new QueueImplement(size);
 		int c = 1;
 		while (c == 1) {
-			System.out.println("################################################");
+			System.out
+					.println("################################################");
 			System.out.println("1 -> INSERT ELEMENT IN QUEUE");
 			System.out.println("2 -> DELETE ELEMENT IN QUEUE");
 			System.out.println("3 -> DISPLAY ELEMENTS IN QUEUE");
 			System.out.println("4 -> EXIT");
-			System.out.println("################################################");
+			System.out
+					.println("################################################");
 			int choice = scan.nextInt();
-			switch(choice)
-			{
-				case 1:
-					int ch = 1;
-					while(ch == 1) {
-						System.out.println("Enter data : ");
-						int data = scan.nextInt();
-						Q.enQueue(data);
-						System.out.println("IF WANT TO INSERT MORE (Press 1 else Press 0)");
-						ch = scan.nextInt();
-					}
-					break;
-				case 2:
-					ch = 1;
-					while(ch == 1) {
-						Q.deQueue();
-						System.out.println("IF WANT TO DELETE MORE (Press 1 else Press 0)");
-						ch = scan.nextInt();
-					}
-					break;
-				case 3:
-					Q.displayQueue();
-					break;
-				case 4:
-					c = 0;
-					break;
-				default :
-					System.out.println("WRONG VALUE ENTERED!!!!!!");
+			switch (choice) {
+			case 1:
+				int ch = 1;
+				while (ch == 1) {
+					System.out.println("Enter data : ");
+					int data = scan.nextInt();
+					Q.enQueue(data);
+					System.out
+							.println("IF WANT TO INSERT MORE (Press 1 else Press 0)");
+					ch = scan.nextInt();
+				}
+				break;
+			case 2:
+				ch = 1;
+				while (ch == 1) {
+					Q.deQueue();
+					System.out
+							.println("IF WANT TO DELETE MORE (Press 1 else Press 0)");
+					ch = scan.nextInt();
+				}
+				break;
+			case 3:
+				Q.displayQueue();
+				break;
+			case 4:
+				c = 0;
+				break;
+			default:
+				System.out.println("WRONG VALUE ENTERED!!!!!!");
 			}
 		}
 		scan.close();
