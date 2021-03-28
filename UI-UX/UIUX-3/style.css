@@ -1,0 +1,310 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background-image: url("/images/bodybg.png");
+    background-size: auto;
+    background-position: center;
+}
+
+#header {
+    background-image: url("/images/homebg.png");
+    background-size: auto;
+    background-position: center;
+    height: 959px;
+    margin-bottom: 5%;
+}
+
+header{
+    margin: 0px 10%;    
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo{
+    margin: 20px;
+}
+
+.navbar{
+    margin-top: 20px;
+    display: flex;
+}
+
+.header-nav{
+    text-decoration: none;
+    color: white;
+    margin-left: 20px;
+    opacity: 0.8;
+}
+
+.icons{
+    display: flex;
+    margin-top: 20px;
+}
+
+.icon{
+    text-align: right;
+    margin-left: 30px;
+    opacity: 0.8;
+}
+
+.phone{
+    display: flex;
+    justify-content: space-between;
+    margin: 7%;
+}
+
+.phone-img{
+    text-align: right;
+}
+
+.phone h1{
+    color: white;
+    font-size: 45px;
+}
+
+.red-submit{
+    color: white;
+    font-weight: bold;
+    background-color: tomato;
+    padding: 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 13%;
+    margin-right: 10px;
+}
+
+.blue-submit{
+    color: white;
+    font-weight: bold;
+    background-color: blue;
+    padding: 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+.features h2,.screenshots h2,.reviews h2{
+    text-align: center;
+    color: skyblue;
+}
+
+.features p,.screenshots p, .reviews p{
+    color: gray;
+    margin-top: 15px;
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+.description{
+    display: flex;
+    margin-left: 5%;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.description p{
+    text-align: left;
+}
+
+.fact h3{
+    text-align: left;
+}
+
+.fact{
+    display: flex;
+    width: 30%;
+    margin: 3%;
+}
+
+.item{
+    margin-right: 10px;
+}
+
+.features-img{
+    text-align: center;
+}
+
+.left-img{
+    position : absolute;
+    z-index: -1;
+    transform: scale(0.9,0.9) translate(-650px,80px) skewY(-1deg);
+    box-shadow: 10px 20px 20px lightgrey;
+}
+
+.center-img{
+    text-align: center;
+}
+
+.right-img{
+    position: absolute;
+    z-index: -1;
+    transform: scale(0.9,0.9) translate(300px,80px) skewY(1.5deg);
+    box-shadow: 10px 20px 20px lightgrey;
+}
+
+.screen1-img,.screen3-img{
+    width: 55%;
+    text-align: right;
+    margin-right: 10%;
+}
+
+.screen1,.screen3{
+    display: flex;
+    margin-bottom: 10%;
+}
+
+.containerbackground h1{
+    position: absolute;
+    margin-left: 20%;
+    margin-top: 10%;
+    font-size: 180px;
+    z-index: -1;
+    transform: rotate(90deg);
+    color: gray;
+    opacity: 0.3;
+}
+
+.screenshots h3{
+    font-size: 30px;
+}
+
+.screen1-hp p,.screen3-hp p{
+    width: 53%;
+    text-align: left;
+}
+
+.screen2{
+    display: flex;
+    text-align: left;
+    margin-left: 20%;
+    margin-bottom: 10%;
+}
+
+.screen2-img{
+    width: 100%;
+    text-align: left;
+}
+
+.containerbackground-2 h1{
+    position: absolute;
+    margin-left: 5%;
+    margin-top: 10%;
+    font-size: 180px;
+    z-index: -1;
+    transform: rotate(90deg);
+    color: gray;
+    opacity: 0.3;
+}
+
+.cloud,.rain{
+    margin-top: 20%;
+    margin-bottom: 5%;
+}
+
+.circle{
+    text-align: left;
+    margin-top: 20%;
+    margin-bottom: 5%;
+}
+
+.screen2-hp p{
+    text-align: left;
+    margin-right: 40%;
+}
+
+.screen2-hp h3{
+    text-align: left;
+}
+
+.reviews{
+    margin-bottom: 5%;
+}
+
+.quote{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.div{
+    margin: 0px;
+    width: 50%;
+}
+
+.div p{
+    text-align: left;
+    margin: 0px;
+    margin-left: 15%;
+    color: black;
+    width: 75%;
+}
+
+.upper{
+    margin-left: 5%;
+}
+
+.lower{
+    text-align: right;
+    margin-right: 10%;
+}
+
+#download{
+    background-image: url(/images/downloadbg.png);
+    background-position: center;
+    display: flex;
+    justify-content: space-between;
+    background-color: #38C;
+    margin-top: 5%;
+    height: 500px;
+}
+
+.download-box{
+    margin-left: 8%;
+    margin-top: 5%;
+}
+
+.download-box h2, .download-box p{
+    color: white;
+    text-align: left;
+}
+
+.download-box h2{
+    font-size: 35px;
+}
+
+.app-download{
+    display: flex;
+    margin-top: 10%;
+}
+
+.download-img{
+    text-align: right;
+    margin-right: 4%;
+    transform: translate(0,101px);
+}
+
+.footer{
+    background-color: #323f50;
+    height: 150px;
+}
+
+footer{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 10%;
+}
+
+.footer p{
+    border-top: 1px solid gray;
+    color: gray;
+    text-align: center;
+    padding-top: 3%;
+}
